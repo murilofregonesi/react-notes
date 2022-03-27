@@ -1,13 +1,14 @@
 import React from "react";
+import "./style.css";
 
 class NoteCard extends React.Component {
   render() {
     return (
-      <section>
+      <section className="note-card">
         <header>
-          <h3>Título</h3>
+          <h3 className="note-card_title">Título</h3>
         </header>
-        <p>Escreva sua nota</p>
+        <p className="note-card_text">Escreva sua nota</p>
       </section>
     );
   }
