@@ -5,7 +5,7 @@ class NoteCard extends React.Component {
   render() {
     return (
       <section className="note-card">
-        <header>
+        <header className="note-card_header">
           <h3 className="note-card_title">Título</h3>
         </header>
         <p className="note-card_text">Escreva sua nota</p>

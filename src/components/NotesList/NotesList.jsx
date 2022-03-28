@@ -1,5 +1,5 @@
 import React from "react";
-import NoteCard from "../NoteCard/NoteCard";
+import NoteCard from "../NoteCard";
 import "./style.css"
 
 class NotesList extends React.Component {
@@ -9,7 +9,6 @@ class NotesList extends React.Component {
         {Array.of("Trabalho", "Trabalho", "Casa").map((title, index) => {
           return (
             <li key={index} className="notes-list_item">
-              <div className="notes-list_title">{title}</div>
               <NoteCard />
             </li>
           );
