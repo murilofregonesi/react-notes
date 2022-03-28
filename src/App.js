@@ -6,10 +6,16 @@ import "./assets/App.css";
 import "./assets/index.css";
 
 class App extends React.Component {
+  createNote(title, text) {
+    console.log(`${title} ${text}`);
+  }
+
   render() {
     return (
       <section className="content">
-        <NoteForm />
+        <NoteForm
+          createNote={this.createNote}
+        />
         <NotesList />
       </section>
     );
