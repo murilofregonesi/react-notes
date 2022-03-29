@@ -38,7 +38,7 @@ class NoteForm extends React.Component {
         <textarea
           cols="30"
           rows="10"
-          defaultValue="Insira uma nota aqui..."
+          placeholder="Insira uma nota aqui..."
           className="note-form_input"
           onChange={this._handleText.bind(this)}
         />
