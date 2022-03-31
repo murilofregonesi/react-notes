@@ -10,8 +10,10 @@ class NotesList extends React.Component {
           return (
             <li key={index} className="notes-list_item">
               <NoteCard
+                index={index}
                 title={note.title}
                 text={note.text}
+                deleteNote={this.props.deleteNote}
               />
             </li>
           );
