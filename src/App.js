@@ -10,13 +10,20 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      categories: [],
     };
   }
 
   createNote(title, text) {
     this.setState({
       notes: [...this.state.notes, {title, text}]
+    });
+  }
+
+  createCategory(title) {
+    this.setState({
+      categories: [...this.state.categories, title]
     });
   }
 
@@ -35,12 +42,16 @@ class App extends React.Component {
         <NoteForm
           createNote={this.createNote.bind(this)}
         />
-        <CategoryList
-        />
-        <NotesList
-          notes={this.state.notes}
-          deleteNote={this.deleteNote.bind(this)}
-        />
+        <section className="content-notes">
+          <CategoryList
+            categories={this.state.categories}
+            createCategory={this.createCategory.bind(this)}
+          />
+          <NotesList
+            notes={this.state.notes}
+            deleteNote={this.deleteNote.bind(this)}
+          />
+        </section>
       </section>
     );
   }

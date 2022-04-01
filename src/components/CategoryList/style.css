@@ -1,0 +1,21 @@
+.category-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.category-list_ul {
+    display: flex;
+}
+
+.category-list_li {
+    background-color: var(--secondary);
+    color: white;
+    padding: 3px 6px;
+    border-radius: 7px;
+    margin: 0.5em;
+}
+
+.category-list_input {
+
+}
