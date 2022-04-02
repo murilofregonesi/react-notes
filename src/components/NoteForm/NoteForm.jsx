@@ -35,6 +35,11 @@ class NoteForm extends React.Component {
           className="note-form_input"
           onChange={this._handleTitle.bind(this)}
         />
+        <select name="category" className="note-form_input">
+          {this.props.categories.map(category => {
+            return <option value={category}>{category}</option>
+          })}
+        </select>
         <textarea
           cols="30"
           rows="10"
