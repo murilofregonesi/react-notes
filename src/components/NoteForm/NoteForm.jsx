@@ -7,6 +7,7 @@ class NoteForm extends React.Component {
 
     this.title = "";
     this.text = "";
+    this.category = "";
   }
 
   _handleTitle(event) {
@@ -19,8 +20,13 @@ class NoteForm extends React.Component {
     event.stopPropagation();
   }
 
+  _handleCategory(event) {
+    this.category = event.target.value;
+    event.stopPropagation();
+  }
+
   _handleCreate(event) {
-    this.props.createNote(this.title, this.text);
+    this.props.createNote(this.title, this.text, this.category);
     event.preventDefault();
     event.stopPropagation();
   }
@@ -35,7 +41,10 @@ class NoteForm extends React.Component {
           className="note-form_input"
           onChange={this._handleTitle.bind(this)}
         />
-        <select name="category" className="note-form_input">
+        <select name="category"
+          className="note-form_input"
+          onChange={this._handleCategory.bind(this)}
+        >
           {this.props.categories.map(category => {
             return <option value={category}>{category}</option>
           })}

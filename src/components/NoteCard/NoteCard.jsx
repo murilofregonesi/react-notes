@@ -15,6 +15,7 @@ class NoteCard extends React.Component {
           <img src={deleteSVG} alt="delete"
             onClick={this._delete.bind(this)}
           />
+          <h4>{this.props.category}</h4>
         </header>
         <p className="note-card_text">{this.props.text}</p>
       </section>

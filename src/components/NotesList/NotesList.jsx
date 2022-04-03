@@ -13,6 +13,7 @@ class NotesList extends React.Component {
                 index={index}
                 title={note.title}
                 text={note.text}
+                category={note.category}
                 deleteNote={this.props.deleteNote}
               />
             </li>

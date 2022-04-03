@@ -15,9 +15,9 @@ class App extends React.Component {
     };
   }
 
-  createNote(title, text) {
+  createNote(title, text, category) {
     this.setState({
-      notes: [...this.state.notes, {title, text}]
+      notes: [...this.state.notes, {title, text, category}]
     });
   }
 
