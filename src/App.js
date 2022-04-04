@@ -3,54 +3,34 @@ import CategoryList from "./components/CategoryList"
 import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
 
+import Notes from "./data/Notes";
+import Categories from "./data/Categories";
+
 import "./assets/App.css";
 import "./assets/index.css";
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-      notes: [],
-      categories: [],
-    };
-  }
-
-  createNote(title, text, category) {
-    this.setState({
-      notes: [...this.state.notes, {title, text, category}]
-    });
-  }
-
-  createCategory(title) {
-    this.setState({
-      categories: [...this.state.categories, title]
-    });
-  }
-
-  deleteNote(index) {
-    let newNotesList = this.state.notes;
-    newNotesList.splice(index, 1);
-
-    this.setState({
-      notes: newNotesList
-    });
+    this.notes = new Notes();
+    this.categories = new Categories();
   }
 
   render() {
     return (
       <section className="content">
         <NoteForm
-          categories={this.state.categories}
-          createNote={this.createNote.bind(this)}
+          categories={this.categories.categories}
+          createNote={this.notes.addNote.bind(this)}
         />
         <section className="content-notes">
           <CategoryList
-            categories={this.state.categories}
-            createCategory={this.createCategory.bind(this)}
+            categories={this.categories.categories}
+            createCategory={this.categories.addCategory}
           />
           <NotesList
-            notes={this.state.notes}
-            deleteNote={this.deleteNote.bind(this)}
+            notes={this.notes.notes}
+            deleteNote={this.notes.removeNote}
           />
         </section>
       </section>

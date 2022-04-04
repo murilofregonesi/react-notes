@@ -11,24 +11,24 @@ class NoteForm extends React.Component {
   }
 
   _handleTitle(event) {
-    this.title = event.target.value;
     event.stopPropagation();
+    this.title = event.target.value;
   }
 
   _handleText(event) {
-    this.text = event.target.value;
     event.stopPropagation();
+    this.text = event.target.value;
   }
 
   _handleCategory(event) {
-    this.category = event.target.value;
     event.stopPropagation();
+    this.category = event.target.value;
   }
 
   _handleCreate(event) {
-    this.props.createNote(this.title, this.text, this.category);
     event.preventDefault();
     event.stopPropagation();
+    this.props.createNote(this.title, this.text, this.category);
   }
 
   render() {
