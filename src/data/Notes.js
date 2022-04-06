@@ -1,11 +1,20 @@
 export default class Notes {
     constructor() {
         this.notes = [];
+        this.listeners = [];
+    }
+
+    addListener(fn) {
+        this.listeners.push(fn);
+    }
+
+    callListeners() {
+        this.listeners.forEach(fn => fn(this.categories));
     }
 
     addNote(title, text, category) {
         const newNote = new Note(title, text, category);
-        this.notes.push(newNote);
+        this.notes.notes.push(newNote);
         console.log(this.notes);
     }
 
