@@ -6,7 +6,7 @@ class NotesList extends React.Component {
   render() {
     return (
       <ul className="notes-list">
-        {this.props.notes.map((note, index) => {
+        {this.props.notes.notes.map((note, index) => {
           return (
             <li key={index} className="notes-list_item">
               <NoteCard
@@ -14,7 +14,7 @@ class NotesList extends React.Component {
                 title={note.title}
                 text={note.text}
                 category={note.category}
-                deleteNote={this.props.deleteNote}
+                deleteNote={this.props.notes.removeNote}
               />
             </li>
           );

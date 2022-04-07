@@ -3,10 +3,18 @@ import "./style.css";
 
 class CategoryList extends React.Component {
 
+  componentDidMount() {
+    this.props.categories.addListener(this._listenCallback.bind(this));
+  }
+
+  _listenCallback() {
+    console.log('_listenCallback');
+  }
+
   _handleCategory(event) {
     if(event.key === "Enter") {
-      if(!this.props.categories.includes(event.target.value)) {
-        this.props.createCategory(event.target.value);
+      if(!this.props.categories.categories.includes(event.target.value)) {
+        this.props.categories.addCategory(event.target.value);
       } else {
         console.log('Already exists.')
       }
@@ -17,7 +25,7 @@ class CategoryList extends React.Component {
     return (
       <section className="category-list">
         <ul className="category-list_ul">
-          {this.props.categories.map(category => {
+          {this.props.categories.categories.map(category => {
             return(
               <li key={category} className="category-list_li">{category}</li>
             );

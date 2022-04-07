@@ -21,16 +21,14 @@ class App extends React.Component {
       <section className="content">
         <NoteForm
           categories={this.categories.categories}
-          createNote={this.notes.addNote.bind(this)}
+          createNote={this.notes.addNote.bind(this.notes)}
         />
         <section className="content-notes">
           <CategoryList
-            categories={this.categories.categories}
-            createCategory={this.categories.addCategory}
+            categories={this.categories}
           />
           <NotesList
-            notes={this.notes.notes}
-            deleteNote={this.notes.removeNote}
+            notes={this.notes}
           />
         </section>
       </section>

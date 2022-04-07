@@ -6,6 +6,7 @@ export default class Categories {
 
     addListener(fn) {
         this.listeners.push(fn);
+        this.callListeners();
     }
 
     callListeners() {

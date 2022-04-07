@@ -14,7 +14,7 @@ export default class Notes {
 
     addNote(title, text, category) {
         const newNote = new Note(title, text, category);
-        this.notes.notes.push(newNote);
+        this.notes.push(newNote);
         console.log(this.notes);
     }
 
