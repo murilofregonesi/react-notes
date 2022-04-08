@@ -8,19 +8,23 @@ export default class Notes {
         this.listeners.push(fn);
     }
 
+    removeListener(fn) {
+        this.listeners = this.listeners.filter(f => f !== fn);
+    }
+
     callListeners() {
-        this.listeners.forEach(fn => fn(this.categories));
+        this.listeners.forEach(fn => fn(this.notes));
     }
 
     addNote(title, text, category) {
         const newNote = new Note(title, text, category);
         this.notes.push(newNote);
-        console.log(this.notes);
+        this.callListeners();
     }
 
     removeNote(index) {
         this.notes.splice(index, 1);
-        console.log(this.notes);
+        this.callListeners();
     }
 }
 

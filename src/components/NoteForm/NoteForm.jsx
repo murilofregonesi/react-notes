@@ -8,6 +8,24 @@ class NoteForm extends React.Component {
     this.title = "";
     this.text = "";
     this.category = "";
+
+    this._handleListener = this._handleListener.bind(this);
+
+    this.state = {
+      categories: [],
+    };
+  }
+
+  componentDidMount() {
+    this.props.categories.addListener(this._handleListener);
+  }
+
+  componentWillUnmount() {
+    this.props.categories.removeListener(this._handleListener);
+  }
+
+  _handleListener(categories) {
+    this.setState({categories});
   }
 
   _handleTitle(event) {
@@ -45,8 +63,8 @@ class NoteForm extends React.Component {
           className="note-form_input"
           onChange={this._handleCategory.bind(this)}
         >
-          {this.props.categories.map(category => {
-            return <option value={category}>{category}</option>
+          {this.state.categories.map((category, index) => {
+            return <option key={index} value={category}>{category}</option>
           })}
         </select>
         <textarea

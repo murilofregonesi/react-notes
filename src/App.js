@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <section className="content">
         <NoteForm
-          categories={this.categories.categories}
+          categories={this.categories}
           createNote={this.notes.addNote.bind(this.notes)}
         />
         <section className="content-notes">

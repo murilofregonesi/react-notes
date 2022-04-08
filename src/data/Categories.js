@@ -6,7 +6,10 @@ export default class Categories {
 
     addListener(fn) {
         this.listeners.push(fn);
-        this.callListeners();
+    }
+
+    removeListener(fn) {
+        this.listeners = this.listeners.filter(f => f !== fn);
     }
 
     callListeners() {
@@ -15,6 +18,6 @@ export default class Categories {
 
     addCategory(category) {
         this.categories.push(category);
-        console.log(this.categories);
+        this.callListeners();
     }
 }

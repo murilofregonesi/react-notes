@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# React Notes
+Learning React through a basic notes application
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
